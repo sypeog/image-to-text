@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
 <title>Image to Text Converter</title>
  
 style.css
+ 
+<script srckg.com/tesseract.js@5/dist/tesseract.min.jsscript>
+ 
 </head>
 <body>
  
 <div class="container">
+ 
 <h1>Image to Text Converter</h1>
 <p>Upload an image and extract text instantly.</p>
- 
-<h3>Drop or Upload Image</h3>
  
 <input type="file" id="imageInput" accept="image/*">
  
@@ -21,16 +24,18 @@ style.css
  
 <button id="extractBtn">Extract Text</button>
  
-<p id="status"></p>
+<br><br>
  
 <textarea
-id="output"
-rows="10"
+id="result"
+rows="12"
 cols="60"
 placeholder="Extracted text will appear here..."
 ></textarea>
+ 
 </div>
  
-script.jsscript>
+<script src="script.js"></script>
+ 
 </body>
 </html>
