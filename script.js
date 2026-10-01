@@ -1,14 +1,31 @@
 const imageInput = document.getElementById("imageInput");
 const extractBtn = document.getElementById("extractBtn");
-const output = document.getElementById("output");
-const status = document.getElementById("status");
+const result = document.getElementById("result");
  
-extractBtn.addEventListener("click", () => {
-if (!imageInput.files.length) {
+extractBtn.addEventListener("click", async () => {
+ 
+const file = imageInput.files[0];
+ 
+if (!file) {
 alert("Please select an image first.");
 return;
 }
  
-status.textContent = "Image selected successfully!";
-output.value = "JavaScript is working.";
+result.value = "Reading image...";
+ 
+try {
+ 
+const { data } = await Tesseract.recognize(
+file,
+"eng+swe"
+);
+ 
+result.value = data.text;
+ 
+} catch (error) {
+ 
+console.error(error);
+result.value = "OCR failed.";
+ 
+}
 });
